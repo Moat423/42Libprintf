@@ -1,0 +1,6 @@
+*/*.o
+*/a.out
+a.out
+*.swp
+*.o
+en.subject.pfd
