@@ -15,11 +15,10 @@
 
 int	main(void)
 {
-	int	*p;
-	int	chars_written;
+	char	*p;
+	int		chars_written;
 
-	p = NULL;
-	*p = 45;
+	p = "45";
 	chars_written = printf("%c\n", 'Y');
 	printf("chars_written= %i\n", chars_written);
 	chars_written = printf("280 %c\n", 280);
