@@ -6,13 +6,15 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:33:08 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/21 18:01:22 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:08:04 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
+#include "printf.h"
+#include "/libft/libft.h"
 
 int	main(void)
 {
