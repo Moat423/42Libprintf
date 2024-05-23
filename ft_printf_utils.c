@@ -26,7 +26,7 @@ int	ft_puthex_upper_fd(unsigned int nb, int fd, int *count)
 	char	*base;
 
 	base = "0123456789ABCDEF";
-	ft_puthex_fd(nb / 16, fd, count, base);
+	ft_puthex_fd(nb, fd, count, base);
 	return (*count);
 }
 
@@ -34,8 +34,8 @@ int	ft_puthex_lower_fd(unsigned int nb, int fd, int *count)
 {
 	char	*base;
 
-	base = "0123456789abcde";
-	ft_puthex_fd(nb / 16, fd, count, base);
+	base = "0123456789abcdef";
+	ft_puthex_fd(nb, fd, count, base);
 	return (*count);
 }
 

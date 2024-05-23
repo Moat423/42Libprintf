@@ -37,7 +37,7 @@ int	conversion_specs(const char *str, va_list args)
 		count = ft_puthex_upper_fd(va_arg(args, int), 1, &count);
 	else if (*str == '\0' || *str == '0')
 		return (-1);
-	else
+	else if (*str == '%')
 		return (write(1, "%", 1));
 	return (count);
 }
@@ -56,18 +56,17 @@ int	string_iteration(const char *str, va_list args)
 	{
 		if (str[i] == '%')
 		{
-			conversion_out = conversion_specs(str + i + 1, args);
-			if (conversion_out > -1)
+			conversion_out = conversion_specs(str + ++i, args);
+			if (conversion_out > 0)
 			{
 				counter += conversion_out;
-				i += 2;
+				i++;
 			}
-			else if (conversion_out == 0)
-				return (0);
-			else if (conversion_out == -1)
-				return (-1);
+			else if (conversion_out < 0)
+				return (conversion_out);
 		}
-		counter += write(1, &str[i++], 1);
+		else
+			counter += write(1, &str[i++], 1);
 	}
 	return (counter);
 }
@@ -78,8 +77,9 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 
 	va_start(args, str);
-	chars_written = 0;
-	chars_written += string_iteration(str, args);
+	if (!str)
+		return (-1);
+	chars_written = string_iteration(str, args);
 	va_end(args);
 	return (chars_written);
 }

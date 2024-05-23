@@ -14,7 +14,7 @@ SHELL = /bin/bash
 MAKEFLAGS += --warn-undefined-variables
 .ONESHELL:
 CC = cc
-CFLAGS = -Werror -Wall -Wextra -I.
+CFLAGS = -Werror -Wall -Wextra -g -I.
 NAME = libftprintf.a
 LIB = ar
 LIBFLAGS = -rcs
@@ -49,6 +49,10 @@ $(LIBSRC_DIR)ft_lstsize.c $(LIBSRC_DIR)ft_lstlast.c \
 $(LIBSRC_DIR)ft_lstadd_back.c $(LIBSRC_DIR)ft_lstdelone.c \
 $(LIBSRC_DIR)ft_lstclear.c $(LIBSRC_DIR)ft_lstiter.c $(LIBSRC_DIR)ft_lstmap.c
 
+NEEDEDSRC = $(LIBSRC_DIR)ft_putchar_fd.c \
+$(LIBSRC_DIR)ft_putchar_fd.c \
+$(LIBSRC_DIR)ft_putnbr_fd.c
+
 LIBOBJS = $(LIBSRCS:.c=.o)
 
 OBJS := $(SRCS:.c=.o)
@@ -82,8 +86,8 @@ fclean: clean
 
 re: fclean all
 
-debug: $(SRCS) $(LIBSRCS)
-	$(CC) -o debug.out $(CFLAGS) -g $^ $(SRCS) $(LIBSRCS) $(MAIN) $(LIBDEPS)\
+debug: $(MAIN) $(SRCS) $(LIBSRCS)
+	$(CC) $(CFLAGS) $^ -o debug.out
 
 bonus: $(NAME) $(BONUS_OBJS)
 	$(LIB) $(LIBFLAGS)  $(NAME) $(BONUS_OBJS)

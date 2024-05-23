@@ -1,6 +1,6 @@
 */*.o
-*/a.out
-a.out
+*/*.out
+*.out
 *.swp
 *.o
 en.subject.pfd
@@ -8,3 +8,4 @@ en.subject.pfd
 *.a
 */*.gch
 *.gch
+TripoulleTester

@@ -28,6 +28,8 @@ int	main(void)
 	value = 1;
 	ptr = NULL;
 	p2 = &value;
+	chars_written = ft_printf("8letters");
+	ft_printf("chars_written= %i\n", chars_written);
 	chars_written = ft_printf("%c\n", 'Y');
 	ft_printf("chars_written= %i\n", chars_written);
 	ft_printf("280: ");
@@ -110,7 +112,7 @@ int	main(void)
 	chars_written = ft_printf("%x\n", INT_MAX);
 	ft_printf("chars_written= %i\n", chars_written);
 
-	ft_printf("%%x\n");
+	ft_printf("%%X\n");
 	ft_printf("45: ");
 	chars_written = ft_printf("%X\n", *p);
 	ft_printf("chars_written= %i\n", chars_written);
@@ -127,13 +129,24 @@ int	main(void)
 	chars_written = ft_printf("%X\n", INT_MAX);
 	ft_printf("chars_written= %i\n", chars_written);
 
+	ft_printf("triple percent in front of d\n");
 	ft_printf("%%%d", 45); //%%d data format not used, doesnt recognize d
 	ft_printf("chars_written= %i\n", chars_written);
 
-	printf("OTHER CASES");
-	printf("%5%");
-
-	ft_printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
+	ft_printf("OTHER CASES\n");
+	chars_written = ft_printf("just percent at the end: %");
+	ft_printf("\n");
+	ft_printf("chars_written= %i\n", chars_written);
+	chars_written = ft_printf("%5%");
+	ft_printf("\n");
+	ft_printf("chars_written= %i\n", chars_written);
+	chars_written = ft_printf("w");
+	ft_printf("\n");
+	ft_printf("chars_written= %i\n", chars_written);
+	chars_written = ft_printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
+	ft_printf("\n");
+	ft_printf("chars_written= %i\n", chars_written);
+	ft_printf("\n");
 	//ft_printf("%s %d %s %c %d", "hello", 34, 'c', 'c', 23, 23, "end");
 	return (0);
 }

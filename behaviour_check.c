@@ -14,6 +14,8 @@
 #include <limits.h>
 #include <stdlib.h>
 
+void	asciwalk(void);
+
 int	main(void)
 {
 	char	*p;
@@ -27,6 +29,8 @@ int	main(void)
 	value = 1;
 	ptr = NULL;
 	p2 = &value;
+	chars_written = printf("8letters");
+	printf("chars_written= %i\n", chars_written);
 	chars_written = printf("%c\n", 'Y');
 	printf("chars_written= %i\n", chars_written);
 	printf("280: ");
@@ -126,32 +130,45 @@ int	main(void)
 	chars_written = printf("%X\n", INT_MAX);
 	printf("chars_written= %i\n", chars_written);
 
+	printf("triple percent in front of d\n");
 	printf("%%%d", 45); //%%d data format not used, doesnt recognize d
 	printf("chars_written= %i\n", chars_written);
 
-	printf("OTHER CASES");
-	printf("%5%");
-
-	printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
+	printf("OTHER CASES\n");
+	chars_written = printf("just percent at the end: %");
+	printf("\n");
+	printf("chars_written= %i\n", chars_written);
+	chars_written = printf("%5%");
+	printf("\n");
+	printf("chars_written= %i\n", chars_written);
+	chars_written = printf("w");
+	printf("\n");
+	printf("chars_written= %i\n", chars_written);
+	chars_written = printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
+	printf("\n");
+	printf("chars_written= %i\n", chars_written);
+	printf("\n");
 	//printf("%s %d %s %c %d", "hello", 34, 'c', 'c', 23, 23, "end");
+	//asciwalk();
 	return (0);
 }
-/*
-char	*asciwalk(void)
+
+void	asciwalk(void)
 {
 	char	*s;
-	char	*ptr;
-	
-	ptr = s;
-	s = malloc(3);
+	int		i;
+
+	s = malloc(4);
+	i = 0;
 	s[0] = '%';
-	s[2] = '\0';
-	s[1] = 0;
-	while (s[1] < 127)
+	s[3] = '\0';
+	s[1] = i;
+	s[2] = 'Y';
+	while (i < 128)
 	{
-		s[1]++;
-		printf(s);
+		printf("Trying format specifier: %d (ASCII %c)\n", i, i);
+		printf((const char *)s);
+		printf("\n");
+		i++;
 	}
-	return (ptr);
 }
-*/
