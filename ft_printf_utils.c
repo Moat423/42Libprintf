@@ -44,6 +44,8 @@ int	ft_putptr_fd(unsigned int nb, int fd)
 	int	count;
 
 	count = 0;
+	if (!nb)
+		return (write(fd, "(nil)", 5));
 	count = write(fd, "0x", 2);
 	ft_puthex_lower_fd(nb, fd, &count);
 	return (count);

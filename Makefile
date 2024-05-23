@@ -19,6 +19,7 @@ NAME = libftprintf.a
 LIB = ar
 LIBFLAGS = -rcs
 DEPS = ft_printf.h
+MAIN = ft_behaviour_check.c
 
 BUILD_DIR = .
 
@@ -48,22 +49,23 @@ $(LIBSRC_DIR)ft_lstsize.c $(LIBSRC_DIR)ft_lstlast.c \
 $(LIBSRC_DIR)ft_lstadd_back.c $(LIBSRC_DIR)ft_lstdelone.c \
 $(LIBSRC_DIR)ft_lstclear.c $(LIBSRC_DIR)ft_lstiter.c $(LIBSRC_DIR)ft_lstmap.c
 
-LIBOBJS = $(LIBSRCS:%.c=%.o)
+LIBOBJS = $(LIBSRCS:.c=.o)
 
-OBJS := $(SRCS:%.c=%.o)
+OBJS := $(SRCS:.c=.o)
 
-ALLOBJS = $(OBS) $(LIBOBJS)
+ALLOBJS = $(OBJS) $(LIBOBJS)
 
 BONUS_SRCS =
 
 BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 
-OBJS_ALL = $(OBJS) $(BONUS_OBJS)
-
 $(NAME): $(ALLOBJS)
 	$(LIB) $(LIBFLAGS) -o $@ $^
 
 %.o: %.c $(DEPS)
+	$(CC) -c $< $(CFLAGS) -o $@
+
+$(LIBSRC_DIR)%.o: $(LIBSRC_DIR)%.c $(LIBDEPS)
 	$(CC) -c $< $(CFLAGS) -o $@
 
 $(OBJS): $(SRSC)
@@ -79,6 +81,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+debug: $(SRCS) $(LIBSRCS)
+	$(CC) -o debug.out $(CFLAGS) -g $^ $(SRCS) $(LIBSRCS) $(MAIN) $(LIBDEPS)\
 
 bonus: $(NAME) $(BONUS_OBJS)
 	$(LIB) $(LIBFLAGS)  $(NAME) $(BONUS_OBJS)

@@ -13,8 +13,6 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
-#include "printf.h"
-#include "/libft/libft.h"
 
 int	main(void)
 {
@@ -31,13 +29,17 @@ int	main(void)
 	p2 = &value;
 	chars_written = printf("%c\n", 'Y');
 	printf("chars_written= %i\n", chars_written);
-	chars_written = printf("280 %c\n", 280);
+	printf("280: ");
+	chars_written = printf("%c\n", 280);
 	printf("chars_written= %i\n", chars_written);
+	printf("a: ");
 	chars_written = printf("%c\n", 'a');
 	printf("chars_written= %i\n", chars_written);
 
+	printf("a: ");
 	chars_written = printf("%s\n", "a");
 	printf("chars_written= %i\n", chars_written);
+	printf("aalles gut: ");
 	chars_written = printf("%s\n", "aalles gut");
 	printf("chars_written= %i\n", chars_written);
 
@@ -59,7 +61,6 @@ int	main(void)
 	printf("chars_written= %i\n", chars_written);
 
 	printf("%%d\n");
-	printf("chars_written= %i\n", chars_written);
 	chars_written = printf("d, 45: %d\n", *p);
 	printf("chars_written= %i\n", chars_written);
 
@@ -127,6 +128,9 @@ int	main(void)
 
 	printf("%%%d", 45); //%%d data format not used, doesnt recognize d
 	printf("chars_written= %i\n", chars_written);
+
+	printf("OTHER CASES");
+	printf("%5%");
 
 	printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
 	//printf("%s %d %s %c %d", "hello", 34, 'c', 'c', 23, 23, "end");

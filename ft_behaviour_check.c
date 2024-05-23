@@ -30,13 +30,17 @@ int	main(void)
 	p2 = &value;
 	chars_written = ft_printf("%c\n", 'Y');
 	ft_printf("chars_written= %i\n", chars_written);
-	chars_written = ft_printf("280 %c\n", 280);
+	ft_printf("280: ");
+	chars_written = ft_printf("%c\n", 280);
 	ft_printf("chars_written= %i\n", chars_written);
+	ft_printf("a: ");
 	chars_written = ft_printf("%c\n", 'a');
 	ft_printf("chars_written= %i\n", chars_written);
 
+	ft_printf("a: ");
 	chars_written = ft_printf("%s\n", "a");
 	ft_printf("chars_written= %i\n", chars_written);
+	ft_printf("aalles gut: ");
 	chars_written = ft_printf("%s\n", "aalles gut");
 	ft_printf("chars_written= %i\n", chars_written);
 
@@ -58,7 +62,6 @@ int	main(void)
 	ft_printf("chars_written= %i\n", chars_written);
 
 	ft_printf("%%d\n");
-	ft_printf("chars_written= %i\n", chars_written);
 	chars_written = ft_printf("d, 45: %d\n", *p);
 	ft_printf("chars_written= %i\n", chars_written);
 
@@ -126,6 +129,9 @@ int	main(void)
 
 	ft_printf("%%%d", 45); //%%d data format not used, doesnt recognize d
 	ft_printf("chars_written= %i\n", chars_written);
+
+	printf("OTHER CASES");
+	printf("%5%");
 
 	ft_printf(" t after percent %t"); //%%d data format not used, doesnt recognize d
 	//ft_printf("%s %d %s %c %d", "hello", 34, 'c', 'c', 23, 23, "end");

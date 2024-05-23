@@ -6,3 +6,5 @@ a.out
 en.subject.pfd
 */*.a
 *.a
+*/*.gch
+*.gch

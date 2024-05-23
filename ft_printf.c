@@ -14,16 +14,7 @@
 #include "libft/libft.h"
 #include <stdarg.h>
 
-int	print_normal(const char *str)
-{
-	int	count;
-
-	count = write(1, "%", 1);
-	if (count == -1)
-		return (-1);
-	count += write(1, str, 1);
-	return (count);
-}
+#include <stdio.h>
 
 int	conversion_specs(const char *str, va_list args)
 {
@@ -47,7 +38,7 @@ int	conversion_specs(const char *str, va_list args)
 	else if (*str == '\0' || *str == '0')
 		return (-1);
 	else
-		count = print_normal(str);
+		return (write(1, "%", 1));
 	return (count);
 }
 
@@ -56,19 +47,27 @@ int	string_iteration(const char *str, va_list args)
 {
 	int		i;
 	int		counter;
-	int		arg_count;
+	int		conversion_out;
 
 	i = 0;
 	counter = 0;
-	arg_count = 0;
+	conversion_out = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			counter += conversion_specs(str + i, args);
+			conversion_out = conversion_specs(str + i + 1, args);
+			if (conversion_out > -1)
+			{
+				counter += conversion_out;
+				i += 2;
+			}
+			else if (conversion_out == 0)
+				return (0);
+			else if (conversion_out == -1)
+				return (-1);
 		}
-		counter += ft_putchar_fd(str[i], 1);
-		i++;
+		counter += write(1, &str[i++], 1);
 	}
 	return (counter);
 }
