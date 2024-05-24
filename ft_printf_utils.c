@@ -50,3 +50,15 @@ int	ft_putptr_fd(void *nb, int fd)
 	ft_puthex_lower_fd((unsigned long)nb, fd, &count);
 	return (count);
 }
+
+//writes an unsinged int to a file descriptor
+int	ft_putunbr_fd(unsigned int n, int fd, int *count)
+{
+	char		num_buff;
+
+	if (n >= 10)
+		ft_putunbr_fd(n / 10, fd, count);
+	num_buff = n % 10 + '0';
+	write(fd, &num_buff, 1);
+	return (*count += 1);
+}
