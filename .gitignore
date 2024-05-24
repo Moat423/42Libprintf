@@ -9,3 +9,6 @@ en.subject.pfd
 */*.gch
 *.gch
 TripoulleTester
+behaviour_check.c
+ft_behaviour_check.c
+

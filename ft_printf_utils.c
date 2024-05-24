@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "printf.h"
 
-int	ft_puthex_fd(unsigned int nb, int fd, int *count, char *base)
+int	ft_puthex_fd(unsigned long nb, int fd, int *count, char *base)
 {
 	if (nb >= 16)
 		ft_puthex_fd(nb / 16, fd, count, base);
@@ -30,7 +30,7 @@ int	ft_puthex_upper_fd(unsigned int nb, int fd, int *count)
 	return (*count);
 }
 
-int	ft_puthex_lower_fd(unsigned int nb, int fd, int *count)
+int	ft_puthex_lower_fd(unsigned long nb, int fd, int *count)
 {
 	char	*base;
 
@@ -39,7 +39,7 @@ int	ft_puthex_lower_fd(unsigned int nb, int fd, int *count)
 	return (*count);
 }
 
-int	ft_putptr_fd(unsigned int nb, int fd)
+int	ft_putptr_fd(void *nb, int fd)
 {
 	int	count;
 
@@ -47,6 +47,6 @@ int	ft_putptr_fd(unsigned int nb, int fd)
 	if (!nb)
 		return (write(fd, "(nil)", 5));
 	count = write(fd, "0x", 2);
-	ft_puthex_lower_fd(nb, fd, &count);
+	ft_puthex_lower_fd((unsigned long)nb, fd, &count);
 	return (count);
 }
