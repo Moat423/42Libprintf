@@ -18,8 +18,8 @@
 # include "libft/libft.h"
 
 int	ft_printf(const char *str, ...);
-int	ft_putptr_fd(unsigned int nb, int fd);
-int	ft_puthex_fd(unsigned int nb, int fd, int count);
-int	ft_puthex_lower_fd(unsigned int nb, int fd, int *count);
+int	ft_putptr_fd(void *nb, int fd);
+int	ft_puthex_fd(unsigned long nb, int fd, int *count, char *base);
+int	ft_puthex_lower_fd(unsigned long nb, int fd, int *count);
 int	ft_puthex_upper_fd(unsigned int nb, int fd, int *count);
 #endif

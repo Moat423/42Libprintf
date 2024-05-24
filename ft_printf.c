@@ -26,7 +26,7 @@ int	conversion_specs(const char *str, va_list args)
 	else if (*str == 's')
 		count = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (*str == 'p')
-		count = ft_putptr_fd(va_arg(args, unsigned int), 1);
+		count = ft_putptr_fd(va_arg(args, void *), 1);
 	else if (*str == 'd' || *str == 'i')
 		count = ft_putnbr_fd(va_arg(args, int), 1);
 	else if (*str == 'u')
@@ -35,7 +35,7 @@ int	conversion_specs(const char *str, va_list args)
 		count = ft_puthex_lower_fd(va_arg(args, unsigned int), 1, &count);
 	else if (*str == 'X')
 		count = ft_puthex_upper_fd(va_arg(args, int), 1, &count);
-	else if (*str == '\0' || *str == '0')
+	else if (*str == '\0')
 		return (-1);
 	else if (*str == '%')
 		return (write(1, "%", 1));
@@ -57,7 +57,7 @@ int	string_iteration(const char *str, va_list args)
 		if (str[i] == '%')
 		{
 			conversion_out = conversion_specs(str + ++i, args);
-			if (conversion_out > 0)
+			if (conversion_out >= 0)
 			{
 				counter += conversion_out;
 				i++;
