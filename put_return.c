@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
 //writes char and returns sucess or not
 int	ft_putchar_fd_return(char c, int fd)
 {

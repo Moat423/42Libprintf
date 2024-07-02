@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
-#include <stdarg.h>
 
 int	conversion_specs(const char *str, va_list args)
 {
@@ -20,13 +18,13 @@ int	conversion_specs(const char *str, va_list args)
 
 	count = 0;
 	if (*str == 'c')
-		count = ft_putchar_fd(va_arg(args, int), 1);
+		count = ft_putchar_fd_return(va_arg(args, int), 1);
 	else if (*str == 's')
-		count = ft_putstr_fd(va_arg(args, char *), 1);
+		count = ft_putstr_fd_return(va_arg(args, char *), 1);
 	else if (*str == 'p')
 		count = ft_putptr_fd(va_arg(args, void *), 1);
 	else if (*str == 'd' || *str == 'i')
-		count = ft_putnbr_fd(va_arg(args, int), 1);
+		count = ft_putnbr_fd_return(va_arg(args, int), 1);
 	else if (*str == 'u')
 		count = ft_putunbr_fd(va_arg(args, int), 1, &count);
 	else if (*str == 'x')
