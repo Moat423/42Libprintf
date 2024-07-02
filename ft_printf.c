@@ -6,15 +6,13 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 11:03:02 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/22 11:54:58 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:52:06 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 #include <stdarg.h>
-
-#include <stdio.h>
 
 int	conversion_specs(const char *str, va_list args)
 {

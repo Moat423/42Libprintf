@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:02:32 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/21 17:24:57 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/07/02 14:46:42 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int	ft_putptr_fd(void *nb, int fd);
 int	ft_puthex_fd(unsigned long nb, int fd, int *count, char *base);
 int	ft_puthex_lower_fd(unsigned long nb, int fd, int *count);
 int	ft_puthex_upper_fd(unsigned int nb, int fd, int *count);
+int	ft_putchar_fd_return(char c, int fd);
 #endif

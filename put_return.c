@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   put_return.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 12:46:40 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/21 17:58:25 by lmeubrin         ###   ########.fr       */
+/*   Created: 2024/07/02 14:44:30 by lmeubrin          #+#    #+#             */
+/*   Updated: 2024/07/02 14:51:03 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* Outputs the integer ’n’ to the given file
-descriptor.
-allowed funcitons: write
-VARS
-n: The integer to output.
-fd: The file descriptor on which to write.
-*/
+#include "ft_printf.h"
 
-#include "libft.h"
+//writes char and returns sucess or not
+int	ft_putchar_fd_return(char c, int fd)
+{
+	return (write(fd, &c, 1));
+}
 
-//convertes an int to unsigned and writes the minus in case of negative
-int	ft_putnbr_fd(int n, int fd)
+//writes string and return chars written or null for invalid s
+int	ft_putstr_fd_return(char *s, int fd)
+{
+	if (!s)
+		return (write(fd, "(null)", 6));
+	return (write(fd, s, ft_strlen(s)));
+}
+
+//writes an int number with - and returns chars written
+int	ft_putnbr_fd_return(int n, int fd)
 {
 	unsigned int	pnum;
 	int				count;
