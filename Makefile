@@ -43,7 +43,7 @@ $(NAME): $(OBJS)
 %.o: %.c $(DEPS)
 	$(CC) -c $< $(CFLAGS) -o $@
 
-$(OBJS): $(SRSC)
+$(OBJS): $(SRCS)
 
 
 clean:
@@ -54,7 +54,7 @@ fclean: clean
 
 re: fclean all
 
-debug: $(MAIN) $(SRCS) $(LIBSRCS)
+debug: $(MAIN) $(SRCS)
 	$(CC) $(CFLAGS) $^ -o debug.out
 
 bonus: $(NAME) $(BONUS_OBJS)
